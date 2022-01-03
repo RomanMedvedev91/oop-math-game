@@ -7,6 +7,7 @@ questions = [
 
 class Questions
   def initialize
+    # questions/answers
   end
   
   
@@ -22,7 +23,25 @@ end
 
 
 class Game
-  
+
+  def initialize
+  # players, questions
+  end
+
+  # loop through questions
+# Player 1 puts 1st question from DB
+#  player 1 answer
+# 
+# if output != DB.answer1
+# set current_player_life - 1
+# puts wront_answer, current_score
+
+# if current_player_life = 0 => puts game over
+
+# if output = DB.answer1
+# puts correct_answer, curent_score
+
+# switch_current_player
   def current_player
   end
 
@@ -31,7 +50,8 @@ end
 class Player
 attr_accessor :score
 
-def initialize
+def initialize(name)
+  @name = name
   @score = 3
 end
 
@@ -39,7 +59,8 @@ end
     puts "#{@score} / 3"
   end
 
-  def win?
+  def decrease_score
+    @score -= 1
   end
   
 end
@@ -57,18 +78,7 @@ end
   end
 
 start
-# loop
-# puts 1st question from DB
-# if output != DB.answer1
-# set current_player_life - 1
-# puts wront_answer, current_score
 
-# if current_player_life = 0 => puts game over
-
-# if output = DB.answer1
-# puts correct_answer, curent_score
-
-# switch_current_player
 
 
 
