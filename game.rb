@@ -1,24 +1,50 @@
 class Game
 
   def initialize
-  # players, questions
+    @player1 = Player.new("Player 1")
+    @player2 = Player.new("Player 2")
   end
 
-  # loop through questions
-# Player 1 puts 1st question from DB
-#  player 1 answer
-# 
-# if output != DB.answer1
-# set current_player_life - 1
-# puts wront_answer, current_score
-
-# if current_player_life = 0 => puts game over
-
-# if output = DB.answer1
-# puts correct_answer, curent_score
-
-# switch_current_player
-  def current_player
+ 
+  def show_scors
+    puts "P1: #{@player1.lives}/3 vs P2: #{@player2.lives}/3"
   end
+
+  def win(player)
+    puts "#{player.name} wins with the score of #{player.lives}/3"
+    puts "---- GAME OVER ----"
+    puts "Good bye!"
+    exit(0)
+  end
+
+  def check_lives
+    if @player1.lives == 0
+      win(@player2)
+    elsif @player2.lives == 0
+      win(@player1)
+    end
+  end
+
+
+  def start
+    @player1.create_question
+    check_lives
+    @player2.create_question
+    check_lives
+    show_scors
+    puts " ---- NEW TURN ----"
+    start
+  end
+    # puts question
+
+  #   current_player = 1
+  #   puts "Player #{current_player}: What does 5 plus 3 equal?"
+  #   puts ">"
+  #   choice = $stdin.gets.chomp
+  #   if choice != 8
+  #     puts "Seriously? No!"
+  #     puts "current score"
+  #   end
+  # end
 
 end

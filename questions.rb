@@ -9,7 +9,7 @@ end
     puts "#{player}: What does #{@number1} plus #{@number2} equal?"
   end
 
-  def check_answer?(input)
+  def check_answer(input)
     @sum == input
   end
 end
