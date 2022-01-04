@@ -1,20 +1,15 @@
 class Questions
-attr_accessor :question, :answer
-
-  def generate_question(player)
-    @number1 = rand(1..20)
-    @number2 = rand(1..20)
-    "#{player}: What does #{@number1} plus #{@number2} equal?"
-  end
-
-  def generate_answer
-    answer = @number1 + @number2
-    puts answer
-  end
-
+def initialize
+  @number1 = rand(1..20)
+  @number2 = rand(1..20)
+  @sum = @number1 + @number2
 end
 
-first = Questions.new
-puts first.generate_question("player1")
+  def generate_question(player)
+    puts "#{player}: What does #{@number1} plus #{@number2} equal?"
+  end
 
-puts first.generate_answer
+  def check_answer?(input)
+    @sum == input
+  end
+end
